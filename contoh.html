@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ranking Karyawan - Metode AHP</title>
+  <title>Ranking Pegawai - Metode AHP</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -98,21 +98,21 @@
   <button class="logout" onclick="logout()">Logout</button>
 
   <div class="container">
-    <h1>Manajemen Karyawan - Ranking AHP</h1>
+    <h1>Manajemen Pegawai - Ranking AHP</h1>
 
     <!-- Menu -->
     <div class="menu">
-      <button onclick="showSection('formSection')">Tambah Karyawan</button>
-      <button onclick="showSection('listSection')">Daftar Karyawan</button>
+      <button onclick="showSection('formSection')">Tambah Pegawai</button>
+      <button onclick="showSection('listSection')">Daftar Pegawai</button>
       <button onclick="showSection('rankSection')">Hasil Ranking</button>
     </div>
 
     <!-- Form Section -->
     <div id="formSection" class="section">
-      <h2>Form Tambah Karyawan</h2>
+      <h2>Form Tambah Pegawai</h2>
       <form id="employeeForm">
-        <label for="name">Nama Karyawan:</label>
-        <input type="text" id="name" placeholder="Masukkan nama karyawan" required />
+        <label for="name">Nama Pegawai:</label>
+        <input type="text" id="name" placeholder="Masukkan nama Pegawai" required />
 
         <h3>Kriteria (Nilai 1-10):</h3>
         <div id="criteriaContainer">
@@ -128,13 +128,13 @@
           <input type="number" min="1" max="10" placeholder="Kriteria 10" class="criteria" required />
         </div>
 
-        <button type="submit">Tambah Karyawan</button>
+        <button type="submit">Tambah Pegawai</button>
       </form>
     </div>
 
     <!-- List Section -->
     <div id="listSection" class="section">
-      <h2>Daftar Data Karyawan</h2>
+      <h2>Daftar Data Pegawai</h2>
       <table id="employeeTable">
         <thead>
           <tr>
