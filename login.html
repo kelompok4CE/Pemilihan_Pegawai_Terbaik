@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login dan Formulir Identitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(unimed.pgn.jpg);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loginContainer" class="container">
+        <h2>Login Pemimpin Universitas</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="loginEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="identityContainer" class="container hidden">
+        <h2>Formulir Identitas Pemimpin Universitas</h2>
+        <form id="identityForm">
+            <div class="form-group">
+                <label for="identityNama">Nama:</label>
+                <input type="text" id="identityNama" name="identityNama" required>
+            </div>
+            <div class="form-group">
+                <label for="identityEmail">Email:</label>
+                <input type="email" id="identityEmail" name="identityEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="identityTelepon">Nomor Telepon:</label>
+                <input 
+                    type="tel" 
+                    id="identityTelepon" 
+                    name="identityTelepon" 
+                    pattern="\d+" 
+                    title="Hanya boleh menggunakan angka." 
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="identityAlamat">Alamat:</label>
+                <input type="text" id="identityAlamat" name="identityAlamat" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Kirim</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const loginContainer = document.getElementById('loginContainer');
+        const identityContainer = document.getElementById('identityContainer');
+
+        document.getElementById('loginForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Ambil data user dari localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                alert('Login berhasil');
+                loginContainer.classList.add('hidden');
+                identityContainer.classList.remove('hidden');
+            } else {
+                alert('Email atau password salah.');
+            }
+        });
+
+        document.getElementById('identityForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Data diri berhasil disimpan.');
+            window.location.href = "contoh.html";
+        });
+    </script>
+
+</body>
+</html>
